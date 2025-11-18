@@ -15,22 +15,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[context.production]
-  command = "npm run build"
-  publish = "dist"
-
-[context.production.environment]
-  VITE_FIREBASE_API_KEY = "placeholder"
-  VITE_FIREBASE_AUTH_DOMAIN = "placeholder"
-  VITE_FIREBASE_PROJECT_ID = "placeholder"
-  VITE_FIREBASE_STORAGE_BUCKET = "placeholder"
-  VITE_FIREBASE_MESSAGING_SENDER_ID = "placeholder"
-  VITE_FIREBASE_APP_ID = "placeholder"
-  VITE_FIREBASE_MEASUREMENT_ID = "placeholder"
-  VITE_FATSECRET_CLIENT_ID = "placeholder"
-  VITE_FATSECRET_CLIENT_SECRET = "placeholder"
-  VITE_FATSECRET_API_BASE = "https://platform.fatsecret.com/rest/server.api"
-  VITE_ADMIN_FISIO_UID = "placeholder"
-  VITE_ADMIN_FISIO_EMAIL = "placeholder"
-  VITE_FORMSPREE_ENDPOINT = "placeholder"
