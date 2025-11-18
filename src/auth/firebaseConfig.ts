@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
 
 // Firebase configuration using environment variables
 const firebaseConfig = {
@@ -18,10 +17,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
-const analytics = getAnalytics(app);
 
 // Admin/Fisio UID - Solo este usuario puede acceder como fisio
 export const ADMIN_FISIO_UID = import.meta.env.VITE_ADMIN_FISIO_UID;
 export const ADMIN_FISIO_EMAIL = import.meta.env.VITE_ADMIN_FISIO_EMAIL;
 
-export { app, auth, db, analytics };
+export { app, auth, db };
