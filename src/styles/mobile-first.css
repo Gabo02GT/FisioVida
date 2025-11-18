@@ -1,0 +1,326 @@
+/* ============================================
+   MOBILE FIRST GLOBAL STYLESHEET
+   Soluciona todos los problemas de overflow
+   ============================================ */
+
+/* ===== RESET GLOBAL ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== VIEWPORT FIX ===== */
+#root, #app, main, section, div[role="main"] {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== CONTAINER BASE (Mobile First) ===== */
+.container,
+.container-fluid,
+[class*="container"] {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow-x: hidden;
+}
+
+/* ===== GRID FIXES ===== */
+.grid,
+.grid-responsive,
+.grid-2-responsive,
+.grid-3-responsive,
+.grid-4-responsive,
+[class*="grid"],
+[class*="-grid"] {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== FLEXBOX FIXES ===== */
+.flex,
+.flex-responsive,
+.flex-row,
+.flex-between,
+[class*="flex"] {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.flex-row-responsive {
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== IMAGES & MEDIA ===== */
+img, picture, video, canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+iframe {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* ===== BUTTONS & INPUTS (Mobile Touch) ===== */
+button, input, select, textarea, [role="button"] {
+  font-size: 16px; /* Previene zoom en iOS */
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.75rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid #bfdbfe;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #4fc3dc;
+  box-shadow: 0 0 0 3px rgba(79, 195, 220, 0.1);
+}
+
+/* ===== TEXT & TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+p, li, label, span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ===== OVERFLOW FIXES ===== */
+main, section, article, aside {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Previene elementos con ancho fijo */
+div[style*="width: 100%"],
+div[style*="width:100%"] {
+  overflow-x: hidden;
+}
+
+/* ===== MODAL & DIALOG ===== */
+.modal, .dialog, [role="dialog"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.modal-content, .dialog-content {
+  position: relative;
+  max-width: calc(100% - 2rem);
+  width: auto;
+  margin: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+nav ul, nav ol {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+nav li {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== CARDS ===== */
+.card, [class*="card"] {
+  width: 100%;
+  overflow-x: hidden;
+  padding: 1rem;
+}
+
+/* ===== TABLES ===== */
+.table-responsive, [class*="table"] {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ===== LISTS ===== */
+ul, ol {
+  width: 100%;
+  overflow-x: hidden;
+  padding-left: 1.5rem;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.w-100, .w-full {
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+  width: 100%;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* ===== TABLET (768px+) ===== */
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .grid-2-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-3-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-4-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .flex-row-responsive {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  button, input, select, textarea {
+    min-height: 40px;
+  }
+
+  input, select, textarea {
+    padding: 0.8rem;
+    font-size: 15px;
+  }
+
+  .modal-content, .dialog-content {
+    max-width: 500px;
+  }
+}
+
+/* ===== DESKTOP (1024px+) ===== */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .grid-3-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .grid-4-responsive {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  input, select, textarea {
+    padding: 0.8rem;
+    font-size: 16px;
+  }
+
+  .modal-content, .dialog-content {
+    max-width: 600px;
+  }
+}
+
+/* ===== WIDE (1400px+) ===== */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== SAFE AREA (Notched Devices) ===== */
+@supports (padding: max(0px)) {
+  body, .container, main, nav {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  body {
+    overflow: visible;
+  }
+  
+  .modal, .dialog, nav {
+    display: none;
+  }
+}

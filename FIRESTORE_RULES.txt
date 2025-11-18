@@ -1,0 +1,43 @@
+====================================================
+REGLAS DE SEGURIDAD FIRESTORE - COPIAR Y PEGAR
+====================================================
+
+COPIA EXACTAMENTE ESTO EN FIRESTORE CONSOLE:
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Invitaciones - Admin puede escribir, todos pueden leer para validar token
+    match /invitations/{invitationId} {
+      allow create: if request.auth != null && request.auth.uid == "E3SCfoJlCNNXgDgNhpiWrHANXrA2";
+      allow read: if true;
+      allow update: if request.auth != null && (request.auth.uid == "E3SCfoJlCNNXgDgNhpiWrHANXrA2" || request.auth.uid == resource.data.registeredUserId || resource.data.email == request.auth.token.email);
+      allow delete: if request.auth != null && request.auth.uid == "E3SCfoJlCNNXgDgNhpiWrHANXrA2";
+    }
+    
+    // Usuarios - Cualquier usuario autenticado puede crear su propio usuario
+    match /users/{userId} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null;
+      allow update: if request.auth != null && request.auth.uid == userId;
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+
+====================================================
+PASOS PARA IMPLEMENTAR:
+====================================================
+
+1. Ve a: https://console.firebase.google.com
+2. Selecciona proyecto "fisiovida-e5e19"
+3. En el menú izquierdo, ve a "Firestore Database"
+4. Haz clic en la pestaña "Rules" (Reglas)
+5. BORRA TODO lo que hay ahí
+6. PEGA exactamente el código anterior
+7. Haz clic en "Publish" (Publicar)
+8. Espera a que diga "Rules updated successfully"
+9. Vuelve a tu aplicación y prueba nuevamente
+
+====================================================
